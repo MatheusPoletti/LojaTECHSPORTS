@@ -1,0 +1,384 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Garante que o corpo ocupe toda a altura da página */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0; /* Cor cinza clara para toda a página */
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5); /* Alterado para fundo transparente */
+    color: white;
+    padding: 80px 20px; /* Padding ajustado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1; /* Garante que o header esteja acima do vídeo */
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Coloca o vídeo atrás do cabeçalho */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.logo-title img {
+    height: 100px;
+}
+
+.header-content .icons {
+    display: flex;
+    align-items: center;
+    right: 10px;
+}
+
+.header-content .icons a,
+.header-content .icons .cart-icon {
+    margin-left: 15px;
+    position: relative;
+}
+
+.header-content .icons img {
+    height: 40px;
+}
+
+.header-content .cart-icon span {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+    border: 2px solid white;
+}
+
+/* Faixa de texto animado */
+.marquee-container {
+    background: #1d241f;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+    width: 100%;
+    height: 60px; /* Altura para desktop */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Continuando o CSS */
+.marquee-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em; /* Tamanho da fonte para desktop */
+    color: #05e00d; /* Cor verde */
+    text-shadow: 0 0 15px #8BC34A; /* Sombreamento verde claro */
+    animation: blink 1s infinite; /* Efeito de cintilação */
+}
+
+/* Animação de cintilação */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+        animation-delay: 5ms;
+    }
+
+    50% {
+        opacity: 0.5;
+        animation-delay: 5ms;
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-container {
+        height: 50px; /* Ajusta a altura para tablets */
+    }
+    .marquee-text {
+        font-size: 1em; /* Ajusta o tamanho da fonte para tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-container {
+        height: 45px; /* Ajusta a altura para dispositivos móveis */
+    }
+    .marquee-text {
+        padding: 5px;
+        font-size: 0.7em; /* Diminui o tamanho da fonte para dispositivos móveis */
+        text-align: center; /* Centraliza o texto horizontalmente */
+    }
+}
+
+/* Estilo do main atualizado */
+main {
+    padding: 10px;
+    background: rgb(141, 182, 146);
+    background: radial-gradient(circle, rgba(209,232,212,1) 64%, rgba(227,255,231,1) 80%, rgba(195,255,214,1) 100%);
+    min-height: calc(100vh - 100px); /* Garante que o main ocupe o restante da página */
+}
+
+/* Estilo dos produtos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.product {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.product img {
+    padding: 10px 10px;
+    width: 100%;
+    max-height: 470px;
+    object-fit: cover;
+
+}
+
+.product h2 {
+    padding: 5px 0;
+    font-size: 1.2em;
+}
+
+.product p {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilização do modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333;
+}
+
+
+.size-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.size-selection label {
+    margin: 5px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.size-selection input[type="radio"] {
+    display: none;
+}
+
+.size-selection input[type="radio"]:checked + label {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.size-selection label:hover {
+    background-color: #f1f1f1;
+    border-color: #555;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 80px 20px; /* Ajusta o tamanho do header para mobile */
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 5px; /* Ajuste para mobile */
+    }
+
+    .header-content .icons {
+        position: absolute; /* Fixar o ícone do carrinho e Instagram */
+        bottom: 5px; /* Distância do fundo do header */
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-right: 0; /* Remove a margem direita */
+    }
+
+    .logo-title {
+        display: none; /* Remove a logo e o nome da loja */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .marquee-container {
+        padding: 4px 0; /* Reduz o padding no mobile */
+    }
+
+    .marquee-text {
+        font-size: 1.2em; /* Ajusta o tamanho da fonte para dispositivos móveis */
+    }
+    
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 110px 10px; /* Ajusta o padding no mobile */
+        justify-content: flex-start;
+    }
+
+    .header-content .icons {
+        margin-top: auto; /* Posiciona o ícone do carrinho no final */
+        bottom: 5px; /* Distância do fundo do header */
+    }
+
+    .header-content .icons img {
+        height: 30px;
+    }
+
+    .header-content .cart-icon span {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+
+    .modal-content {
+        padding: 15px;
+        width: 80%;
+    }
+
+    .size-selection label {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .marquee-text {
+        font-size: 1em; /* Ajusta ainda mais o tamanho da fonte para dispositivos móveis */
+    }
+}
+
+@media (min-width: 769px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: flex-end; /* Alinha os ícones ao canto direito */
+        align-items: center;
+    }
+
+    .header-content .icons {
+        margin-right: 10px; /* Ajusta a margem direita dos ícones no desktop */
+    }
+}
+
+
