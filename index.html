@@ -11,14 +11,13 @@
   <header>
     <div class="video-background">
       <video autoplay muted loop playsinline id="bg-video">
-        <source src="Techsports - Intro (2).mp4" type="video/mp4">
+        <source src="Techsports - Intro (1).mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
       </video>
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var video = document.getElementById('backgroundVideo');
-          video.play();
-        });
+        window.onload = function () {
+          document.getElementById("autoplay").play();
+        }
       </script>
     </div>
     <div class="header-content">
