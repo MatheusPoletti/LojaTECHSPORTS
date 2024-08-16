@@ -44,7 +44,7 @@ function closeCartModal() {
 
 function confirmCart() {
   if (cart.length === 0) {
-    alert('Seu carrinho está vazio.');
+    alert('Seu carrinzho está vazio.');
     return;
   }
 
